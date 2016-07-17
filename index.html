@@ -1,0 +1,80 @@
+<!--
+Code Example 7.2
+index.html
+-->
+<div>
+  <b>Add Row For New Commers at TCC</b><br />
+  <form name= "frame">
+    First name: <br />
+    <input id="firstname" name="firstName" type="text" />
+    <br />
+    Last name: <br />
+    <input id="lastname" name="lastName" type="text" />
+    <br />
+    Email:<br/>
+     <input type="email" id="email" name="email" placeholder="user@domain.com" required/>
+    <br/>
+    Mobile phone:<br/>
+    <input id="mobile" name="mobile" type="text" placeholder="US phone number"/>
+    <br/>
+    Outreach Person:<br/>
+    <input id="reach" name="reach" type="text" />
+    <br/>
+    Date: <br/>
+    <input id="date" name="date"/>
+    <br/>
+    Followed up?:<br/>
+    <input id="follow" name="follow" type="text" />
+    <br/>
+    Special Note (optional):<br/>
+    <textarea id="note" name="note"></textarea>
+    <br/>
+   <input id='button' onclick="formSubmit()" type="button" value="Add Row" />
+   <input id='button'onclick="google.script.host.close()" type="button" value="Exit" />
+  </form>
+  <script type="text/javascript">
+
+  var currentDate = new Date();
+  var day = currentDate.getDate();
+  var month = currentDate.getMonth() + 1;
+  var year = currentDate.getFullYear();
+   document.getElementById('date').value = month+"/"+day+"/"+year;
+
+        function formSubmit() {
+            google.script.run.getValuesFromForm(document.forms[0]);
+            var frm = document.getElementsByName('frame')[0];
+
+            frm.reset();  // Reset
+         document.getElementById('date').value = month+"/"+day+"/"+year;
+   }
+  </script>
+</div>
+
+<!-- Code example 7-4 -->
+<style>
+  div {
+
+    background-color: #DCDCDC;
+  }
+  fieldset {
+    display: inline;
+    font-weight: bold;
+  }
+  #note{
+  width:450px;
+  height:80px;
+  }
+  input {
+    background-color: #FFFFFF;
+    width: 300px;
+    float: middle;
+  }
+    #button {
+    background-color: #FFFFFF;
+    width: 200px;
+    height: 50px;
+    float: middle;
+  }
+
+
+</style>
